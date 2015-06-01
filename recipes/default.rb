@@ -29,7 +29,7 @@ bash "install Meteor" do
   code <<-EOH
   	/bin/sh #{install_script}
   EOH
-  not_if { ::FileTest.exists?("/usr/bin/meteor") }
+  not_if { ::FileTest.exists?("/usr/local/bin/meteor") || ::FileTest.exists?("/usr/bin/meteor") }
 end
 
 if node['meteor']['install_meteorite']
